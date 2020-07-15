@@ -1,0 +1,20 @@
+#container {
+    text-align: center;
+    font-family: sans-serif!important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60%;
+    transform: translateY(-50%);
+    // --background: #ECECEC!important;
+  }
+  div.login{
+      display: grid;
+      margin: auto;
+      gap: 20px;
+      grid-template-rows: 1fr 1fr 1fr;
+      width: 75%;
+  }
+  div.reg{
+      padding: 50px 0;
+  }

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de endereço</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/perfil/endereco"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #enderecoForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Cidade:</ion-label>
+      <ion-input type="text" name="cidade" [(ngModel)]="endereco.cidade" required pattern="[a-zA-Z]+" #campoCidade="ngModel"></ion-input>
+      <ion-text color="danger" *ngIf="campoCidade.invalid && (campoCidade.dirty || campoCidade.touched)">
+        <small>
+          <span *ngIf="campoCidade.errors.required">
+            O campo cidade é obrigatório.
+          </span>
+          <span *ngIf="campoCidade.errors.pattern">
+            O campo cidade não pode conter números.
+          </span>
+        </small>
+      </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Bairro:</ion-label>
+      <ion-input type="text" name="bairro" [(ngModel)]="endereco.bairro" required pattern="[a-zA-Z]+" #campoBairro="ngModel"></ion-input>
+      <ion-text color="danger" *ngIf="campoBairro.invalid && (campoBairro.dirty || campoBairro.touched)">
+        <small>
+          <span *ngIf="campoBairro.errors.required">
+            O campo bairro é obrigatório.
+          </span>
+          <span *ngIf="campoBairro07.errors.pattern">
+            O campo bairro não pode conter números.
+          </span>
+        </small>
+      </ion-text> 
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Rua:</ion-label>
+      <ion-input type="text" name="rua" [(ngModel)]="endereco.rua" required pattern="[a-zA-Z]+" #ruaBairro="ngModel"></ion-input>
+      <ion-text color="danger" *ngIf="ruaBairro.invalid && (ruaBairro.dirty || ruaBairro.touched)">
+        <small>
+          <span *ngIf="ruaBairro.errors.required">
+            O campo rua é obrigatório.
+          </span>
+          <span *ngIf="ruaBairro.errors.pattern">
+            O campo rua não pode conter números.
+          </span>
+        </small>
+      </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Número:</ion-label>
+      <ion-input type="number" name="numero" [(ngModel)]="endereco.numero" required>
+      </ion-input>
+    </ion-item>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button color="success" (click)="salvar()" [disable]="enderecoForm.invalid">
+        <ion-icon name="checkmark-outline"></ion-icon> 
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

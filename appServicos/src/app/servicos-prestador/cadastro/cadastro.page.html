@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de serviços</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="servicos-prestador"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #servicoForm="ngForm"></form>
+  <ion-list>
+  <ion-item>
+    <ion-label position="floating">Perfil</ion-label>
+    <ion-select [(ngModel)]="servico.perfil" placeholder="Selecione um perfil">
+      <ion-select-option [value]="perfil" *ngFor="let perfil of perfil">{{perfil.nome}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Função</ion-label>
+    <ion-select [(ngModel)]="servico.funcao" placeholder="Selecione uma função">
+      <ion-select-option [value]="funcao" *ngFor="let funcao of funcao">{{funcao.nome}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Endereço</ion-label>
+    <ion-select [(ngModel)]="servico.endereco" placeholder="Selecione um endereço">
+      <ion-select-option [value]="endereco" *ngFor="let endereco of endereco">{{endereco.cidade}} - {{endereco.rua}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>  
+    <ion-label position="floating">Contato</ion-label>
+    <ion-select [(ngModel)]="servico.contato" placeholder="Selecione um contato">
+      <ion-select-option [value]="contato" *ngFor="let contato of contato">{{contato.email}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="success" (click)="salvar(servico)">
+      <ion-icon name="checkmark-outline"></ion-icon> 
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+ 

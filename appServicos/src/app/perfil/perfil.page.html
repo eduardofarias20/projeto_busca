@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home-prestador"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #perfilForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nome:</ion-label>
+      <ion-input type="text" name="nome" [(ngModel)]="perfil.nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sobrenome:</ion-label>
+      <ion-input type="text" name="sobrenome" [(ngModel)]="perfil.sobrenome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CPF:</ion-label>
+      <ion-input maxlength="14"type="text" name="cpf" [(ngModel)]="perfil.cpf"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sexo:</ion-label>
+      <ion-select value="sexo" name="sexo" [(ngModel)]="perfil.sexo">
+        <ion-select-option value="Masculino">Masculino</ion-select-option>
+        <ion-select-option value="Feminino">Feminino</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br><br>
+    <ion-item>
+      <ion-label position="floating">Usuário:</ion-label>
+      <ion-input type="text" name="usuario" [(ngModel)]="perfil.usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha:</ion-label>
+      <ion-input type="password" name="senha" [(ngModel)]="perfil.senha"></ion-input>
+    </ion-item>
+  </form>
+  <div class="btn_opcao">
+    <ion-button color="success" (click)="salvar()">Salvar</ion-button>
+    <ion-button color="danger" (click)="confirmarExclusao(perfil)">Apagar conta</ion-button>
+    <ion-button color="success" [routerLink]="['endereco']">Meus endereços</ion-button>
+    <ion-button color="success" [routerLink]="['contato']">Meus contatos</ion-button>
+    <ion-button color="success" [routerLink]="['funcao']">Minhas Funções</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastrar contato</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/perfil/contato"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #contatoForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Telefone:</ion-label>
+      <ion-input maxlength="14" type="text" name="telefone" [(ngModel)]="contato.telefone">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Celular:</ion-label>
+      <ion-input maxlength="15" type="text" name="celular" [(ngModel)]="contato.celular">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email:</ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="contato.email">
+      </ion-input>
+    </ion-item>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button color="success" (click)="salvar()" [disable]="!contato.telefone">
+        <ion-icon name="checkmark-outline"></ion-icon> 
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

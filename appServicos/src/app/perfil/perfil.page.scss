@@ -1,0 +1,8 @@
+.btn_opcao{
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+ion-button{
+    margin: 5px auto;
+    width: 75%;
+}

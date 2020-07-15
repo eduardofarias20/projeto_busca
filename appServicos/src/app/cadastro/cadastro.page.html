@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #perfilForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nome:</ion-label>
+      <ion-input type="text" name="Nome" [(ngModel)]="perfil.nome" required pattern="[a-zA-Z]+" #campoNome="ngModel">
+      </ion-input>
+        <ion-text color="danger" *ngIf="campoNome.invalid && (campoNome.dirty || campoNome.touched)">
+          <small>
+            <span *ngIf="campoNome.errors.required">
+              O nome é obrigatório.
+            </span>
+            <span *ngIf="campoNome.errors.pattern">
+              O nome não pode conter números.
+            </span>
+          </small>
+        </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sobrenome:</ion-label>
+      <ion-input type="text" name="Sobrenome" [(ngModel)]="perfil.sobrenome" required pattern="[a-zA-Z]+" #campoSobrenome="ngModel">
+      </ion-input>
+        <ion-text color="danger" *ngIf="campoSobrenome.invalid && (campoSobrenome.dirty || campoSobrenome.touched)">
+          <small>
+            <span *ngIf="campoSobrenome.errors.required">
+              O sobrenome é obrigatório.
+            </span>
+            <span *ngIf="campoSobrenome.errors.pattern">
+              O sobrenome não pode conter números.
+            </span>
+          </small>
+        </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CPF:</ion-label>
+      <ion-input maxlength="11" type="text" name="Cpf" [(ngModel)]="perfil.cpf" required pattern="[0-9]+" #campoCpf="ngModel"></ion-input>
+        <ion-text color="danger" *ngIf="campoCpf.invalid && (campoCpf.dirty || campoCpf.touched)">
+          <small>
+            <span *ngIf="campoCpf.errors.required">
+              O CPF é obrigatório.
+            </span>
+            <span *ngIf="campoCpf.errors.pattern">
+              O CPF não pode conter letras.
+            </span>
+          </small>
+        </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sexo:</ion-label>
+      <ion-select value="Sexo" name="sexo" [(ngModel)]="perfil.sexo">
+        <ion-select-option value="Masculino">Masculino</ion-select-option>
+        <ion-select-option value="Feminino">Feminino</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br><br>
+    <ion-item>
+      <ion-label position="floating">Usuário:</ion-label>
+      <ion-input type="text" name="Usuario" [(ngModel)]="perfil.usuario" required #campoUsuario="ngModel"></ion-input>
+        <ion-text color="danger" *ngIf="campoUsuario.invalid && (campoUsuario.dirty || campoUsuario.touched)">
+          <small>
+            <span *ngIf="campoUsuario.errors.required">
+              O usuário é obrigatório.
+            </span>
+          </small>
+        </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha:</ion-label>
+      <ion-input type="text" name="senha" [(ngModel)]="perfil.senha" required #campoSenha="ngModel"></ion-input>
+        <ion-text color="danger" *ngIf="campoSenha.invalid && (campoSenha.dirty || campoSenha.touched)">
+          <small>
+            <span *ngIf="campoSenha.errors.required">
+              A senha é obrigatória.
+            </span>
+          </small>
+        </ion-text>
+    </ion-item>
+    <div class="btn_option">
+      <ion-button color="success" (click)="salvar()">Cadastrar</ion-button>
+    </div>
+  </form>
+</ion-content>

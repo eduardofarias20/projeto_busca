@@ -1,0 +1,25 @@
+#container {
+    text-align: center;
+    font-family: sans-serif!important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60%;
+    transform: translateY(-50%);
+    // --background: #ECECEC!important;
+}
+  
+#container ion-searchbar{
+    margin: 0 auto;
+    width: 75%;
+}
+
+div.btn_opcao{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin: 0 auto;
+    width: 75%;
+}
+.logout{
+    padding-top: 80px;
+}
